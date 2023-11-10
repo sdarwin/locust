@@ -1,7 +1,8 @@
 module "loadtest" {
     
     # https://registry.terraform.io/modules/marcosborges/loadtest-distribuited/aws/latest
-    source  = "marcosborges/loadtest-distribuited/aws"
+    # source  = "marcosborges/loadtest-distribuited/aws"
+    source  = "samd2/loadtest-distributed/aws"
 
     name = "provision-name"
     nodes_size = var.node_size
@@ -28,5 +29,5 @@ module "loadtest" {
     subnet_id = data.aws_subnet.current.id
     locust_plan_filename = var.locust_plan_filename
     ssh_export_pem = var.ssh_export_pem
-
+    locust_version = "2.18.1"
 }
